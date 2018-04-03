@@ -1,0 +1,39 @@
+{
+  "name": "microservices-project",
+  "version": "1.0.0",
+  "description": "project for microservices workshop",
+  "author": "Roy Sommer <royso@wix.com>",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "start": "node .",
+    "deploy": "concurrently \"node scripts/deploy\" \"npm start\"",
+    "watch": "babel --ignore node_modules,dist,scripts --out-dir dist --watch .",
+    "test": "jest --verbose --silent"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-preset-env": "^1.6.1",
+    "chance": "^1.0.13",
+    "concurrently": "^3.5.1",
+    "jest": "^22.4.2",
+    "localtunnel": "^1.8.3",
+    "nock": "^9.2.3",
+    "supertest": "^3.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "roots": [
+      "test"
+    ]
+  }
+}
