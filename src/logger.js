@@ -1,5 +1,8 @@
 export const logger = () =>
   (req, res, next) => {
-    console.log(`[${req.method.toUpperCase()}] ${req.path} ${JSON.stringify(req.query || req.body)}`);
+    if (process.env.NODE_ENV !== 'test') {
+      console.log(`[${req.method.toUpperCase()}] ${req.path} ${JSON.stringify(req.query)} ${JSON.stringify(req.body)}`);
+    }
+
     next();
   };
