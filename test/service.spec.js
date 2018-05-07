@@ -30,11 +30,11 @@ describe('Posts Service', () => {
 
       const response = await request(server).get('/search').query({ term });
       posts
-        .filter(post => post.text.indexOf(term) >= 0)
+        .filter(post => post.text.includes(term))
         .forEach(post =>
           expect(response.body).toContainEqual(post));
       posts
-        .filter(post => post.text.toLowerCase().indexOf(term.toLowerCase()) < 0)
+        .filter(post => !post.text.toLowerCase().includes(term.toLowerCase()))
         .forEach(post =>
           expect(response.body).not.toContainEqual(post));
     });
