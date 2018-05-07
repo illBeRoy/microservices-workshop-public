@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node .",
     "deploy": "concurrently \"node scripts/deploy\" \"npm start\"",
+    "build": "babel --ignore node_modules,dist,scripts --out-dir dist .",
     "watch": "babel --ignore node_modules,dist,scripts --out-dir dist --watch .",
     "test": "jest --verbose"
   },
